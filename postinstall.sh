@@ -15,3 +15,6 @@ ETH=$(ls /sys/class/net/ | grep en)
 sed -i -e 's/enp0s31f6/'$ETH'/g' /usr/local/etc/oai/spgw.conf
 echo "Up to date !!"
 rm -rf /root/SDR_UPDATE1
+HOME=$(ls /home)
+cp /home/$HOME/.bashrc /root/.bashrc
+source /root/bashrc
