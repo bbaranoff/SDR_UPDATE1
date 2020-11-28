@@ -14,6 +14,6 @@ sudo cp -rp ~/opencells-mods/config_epc/* /usr/local/etc/oai
 cd openair-cn; source oaienv; cd scripts
 ./check_hss_s6a_certificate /usr/local/etc/oai/freeDiameter hss.OpenAir5G.Alliance
 ./check_mme_s6a_certificate /usr/local/etc/oai/freeDiameter mme.OpenAir5G.Alliance
-./root/opencells-mods/hss_import 127.0.0.1 root linux oai_db ~/opencells-mods/opencells_db.sql
+/root/opencells-mods/hss_import 127.0.0.1 root linux oai_db ~/opencells-mods/opencells_db.sql
 echo "Up to date !!"
 rm -rf ../SDR_UPDATE1
