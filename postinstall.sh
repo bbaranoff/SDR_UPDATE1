@@ -1,4 +1,5 @@
 #!/bin/bash
+./text.sh
 apt install libccid
 cd ~
 wget https://open-cells.com/opencells-mods-20190923.tgz
