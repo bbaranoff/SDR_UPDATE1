@@ -7,5 +7,5 @@ do
 	echo -n -e "\033[32m$test \033[00m"
 	sleep 0.15
 done;
-echo -e "\033[31mAnd this game gonna end \033[00m"
+echo -e "\033[42mAnd this game gonna end \033[00m"
 
