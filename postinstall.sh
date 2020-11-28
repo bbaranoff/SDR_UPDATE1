@@ -11,6 +11,6 @@ cd openair-cn; source oaienv; cd scripts
 ./check_mme_s6a_certificate /usr/local/etc/oai/freeDiameter mme.OpenAir5G.Alliance
 /root/opencells-mods/hss_import 127.0.0.1 root linux oai_db ~/opencells-mods/opencells_db.sql
 ETH=$(ls /sys/class/net/ | grep en)
-cat /usr/local/etc/oai/spgw.conf | sed -i -e 's/enp0s31f6/\$ETH/g'
+sed -i -e 's/enp0s31f6/\$ETH/g' /usr/local/etc/oai/spgw.conf
 echo "Up to date !!"
 rm -rf /root/SDR_UPDATE1
