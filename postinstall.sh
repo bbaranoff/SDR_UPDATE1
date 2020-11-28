@@ -17,4 +17,4 @@ echo "Up to date !!"
 rm -rf /root/SDR_UPDATE1
 HOME=$(ls /home)
 cp /home/$HOME/.bashrc /root/.bashrc
-source /root/bashrc
+source /root/.bashrc
