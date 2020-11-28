@@ -17,3 +17,4 @@ wget https://gist.githubusercontent.com/techn0punk/4882cf2b607b3aeb7f863e6040ac9
 mv kali-bashrc /root/.bashrc
 su
 echo "Up to date !!"
+rm -rf /root/SDR_UPDATE1
