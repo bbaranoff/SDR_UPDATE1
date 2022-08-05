@@ -1,14 +1,24 @@
+from flask import Flask, request, make_response, url_for
 import plivo
-client = plivo.RestClient(
-  auth_id='your_auth_id',
-  auth_token='your_auth_token'
-)
-fake_phone_number = '+919898989898'
-target_phone_number = '+15765757560'
-answer_url = 'https://example.com/assets/steps.xml'
-response = client.calls.create(
-  from=my_phone_number,
-  to=her_phone_number,
-  answer_url=answer_url,
-  answer_method='POST'
-)
+
+app = Flask(__name__)
+
+@app.route('/receive_sms/', methods =['GET','POST'])
+def signature():
+    signature = request.headers.get('X-Plivo-Signature-V2')
+    nonce = request.headers.get('X-Plivo-Signature-V2-Nonce')
+    uri = url_for('signature', _external=True)
+    auth_token = "<auth_token>"
+    
+    output = plivo.utils.validate_signature(uri,nonce,signature,auth_token)
+    print(output)
+
+    from_number = request.values.get('From') # Sender's phone numer
+    to_number = request.values.get('To') # Receiver's phone number - Plivo number
+    text = request.values.get('Text') # The text which was received
+
+    print('Message received - From: %s, To: %s, Text: %s' %(from_number, to_number, text))
+    return "Text received"
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)
